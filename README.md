@@ -104,118 +104,149 @@ As evidências dos testes realizados (prints dos bugs encontrados) estão dispon
 |--------|-----------|---------|
 | BUG-001 | Cadastro com todos os campos vazios | `bug001_cadastro_campos_vazios.jpeg` |
 | BUG-002 | Cadastro apenas com o nome | `bug002_cadastro_apenas_nome.jpeg` |
-| BUG-003 | Cadastro sem selecionar tipo de curso | `bug003_cadastro_sem_tipo.jpeg` |
-| BUG-004 | Data fim anterior à data início | `bug004_data_fim_anterior.jpeg` |
-| BUG-005 | Número de vagas negativo | `bug005_vagas_negativas.jpeg` |
-| BUG-006 | Exclusão não remove curso da lista | `bug006_exclusao_nao_remove.jpeg` |
-| BUG-007 | Cadastro sem preencher nome | `bug007_cadastro_sem_nome.jpeg` |
-| BUG-008 | Cadastro sem preencher descrição | `bug008_cadastro_sem_descricao.jpeg` |
-| BUG-009 | Cadastro sem preencher instrutor | `bug009_cadastro_sem_instrutor.jpeg` |
-| BUG-010 | Cadastro sem data de início | `bug010_cadastro_sem_data_inicio.jpeg` |
-| BUG-011 | Cadastro sem data de fim | `bug011_cadastro_sem_data_fim.jpeg` |
-| BUG-012 | Cadastro sem número de vagas | `bug012_cadastro_sem_vagas.jpeg` |
-| BUG-013 | Data inválida (ano 99999) | `bug013_data_invalida_ano_99999.jpeg` |
-| BUG-014 | Vagas zero | `bug014_vagas_zero.jpeg` |
-| BUG-015 | Vagas com texto | `bug015_vagas_texto.jpeg` |
-| BUG-016 | URL inválida | `bug016_url_invalida.jpeg` |
-| BUG-017 | Nome com 300 caracteres (layout quebrado) | `bug017_nome_300_caracteres.jpeg` |
-| BUG-018 | Listagem de cursos | `bug018_listagem_cursos.jpeg` |
+| BUG-003 | Cadastro sem preencher nome | `bug003_cadastro_sem_nome.jpeg` |
+| BUG-004 | Cadastro sem descrição | `bug004_cadastro_sem_descricao.jpeg` |
+| BUG-005 | Cadastro sem instrutor | `bug005_cadastro_sem_instrutor.jpeg` |
+| BUG-006 | Cadastro sem data de início | `bug006_cadastro_sem_data_inicio.jpeg` |
+| BUG-007 | Cadastro sem data de fim | `bug007_cadastro_sem_data_fim.jpeg` |
+| BUG-008 | Cadastro sem número de vagas | `bugs008_cadastro_sem_vagas.jpeg` |
+| BUG-009 | Cadastro sem tipo de curso | `bug009_cadastro_sem_tipo.jpeg` |
+| BUG-010 | Data fim anterior à data início | `bugs010_data_fim_anterior.jpeg` |
+| BUG-011 | Número de vagas negativo | `bugs011_vagas_negativas.jpeg` |
+| BUG-012 | Vagas zero | `bugs012_vagas_zero.jpeg` |
+| BUG-013 | Nome com 300 caracteres (layout quebrado) | `bugs013_nome_300_caracteres.jpeg` |
+| BUG-014 | Exclusão não remove curso da lista | `bugs014_exclusao_nao_remove.jpeg` |
 
 ---
 
-## 🐛 Relatório de Bugs
-
+🐛 Relatório de Bugs
 Durante a execução dos testes, foram encontrados os seguintes bugs:
 
-### BUG-001: Sistema permite cadastrar curso sem preencher nenhum campo
-- **Passos:** 1. Acessar "Cadastrar curso" 2. Deixar todos os campos em branco 3. Clicar em "CADASTRAR CURSO"
-- **Resultado atual:** Curso é cadastrado com todos os campos vazios
-- **Resultado esperado:** Sistema deveria exibir mensagens de erro para campos obrigatórios
-- **Severidade:** Crítica
+BUG-001: Sistema permite cadastrar curso sem preencher nenhum campo
+Passos: 1. Acessar "Cadastrar curso" 2. Deixar todos os campos em branco 3. Clicar em "CADASTRAR CURSO"
 
-### BUG-002: Sistema permite cadastrar curso apenas com o nome
-- **Passos:** 1. Preencher apenas "Nome do curso" 2. Deixar demais campos vazios 3. Clicar em "CADASTRAR CURSO"
-- **Resultado atual:** Curso é cadastrado com informações incompletas
-- **Resultado esperado:** Sistema deveria validar todos os campos obrigatórios
-- **Severidade:** Alta
+Resultado atual: Curso é cadastrado com todos os campos vazios
 
-### BUG-003: Campo "Tipo de curso" não é obrigatório
-- **Passos:** 1. Preencher todos os campos 2. Não selecionar "Tipo de curso" 3. Clicar em "CADASTRAR CURSO"
-- **Resultado atual:** Curso é cadastrado sem tipo definido
-- **Resultado esperado:** Tipo de curso deveria ser obrigatório
-- **Severidade:** Média
+Resultado esperado: Sistema deveria exibir mensagens de erro para campos obrigatórios
 
-### BUG-004: Sistema aceita data fim anterior à data início
-- **Passos:** 1. Preencher "Data início" com 30/06/2026 2. Preencher "Data fim" com 01/04/2026 3. Demais campos preenchidos 4. Clicar em "CADASTRAR CURSO"
-- **Resultado atual:** Curso é cadastrado com datas inconsistentes
-- **Resultado esperado:** Sistema deveria exibir mensagem "Data fim não pode ser anterior à data início"
-- **Severidade:** Alta
+Severidade: Crítica
 
-### BUG-005: Sistema aceita número de vagas negativo
-- **Passos:** 1. Preencher "Número de vagas" com -5 2. Demais campos preenchidos 3. Clicar em "CADASTRAR CURSO"
-- **Resultado atual:** Curso é cadastrado com -5 vagas
-- **Resultado esperado:** Sistema deveria aceitar apenas números positivos
-- **Severidade:** Média
+BUG-002: Sistema permite cadastrar curso apenas com o nome
+Passos: 1. Preencher apenas "Nome do curso" 2. Deixar demais campos vazios 3. Clicar em "CADASTRAR CURSO"
 
-### BUG-006: Exclusão de curso não remove da lista
-- **Passos:** 1. Acessar "Listar cursos" 2. Clicar em "EXCLUIR CURSO" em qualquer curso 3. Aguardar mensagem verde
-- **Resultado atual:** Mensagem "excluído com sucesso" aparece, mas curso continua na lista
-- **Resultado esperado:** Curso deveria sumir da listagem imediatamente
-- **Severidade:** Crítica
+Resultado atual: Curso é cadastrado com informações incompletas
 
-### BUG-007: Sistema permite cadastrar sem preencher nome
-- **Passos:** 1. Preencher todos os campos exceto "Nome do curso" 2. Clicar em "CADASTRAR CURSO"
-- **Resultado atual:** Curso é cadastrado sem nome
-- **Resultado esperado:** Sistema deveria exigir nome do curso
-- **Severidade:** Alta
+Resultado esperado: Sistema deveria validar todos os campos obrigatórios
 
-### BUG-008: Sistema permite cadastrar sem descrição
-- **Passos:** 1. Preencher todos os campos exceto "Descrição" 2. Clicar em "CADASTRAR CURSO"
-- **Resultado atual:** Curso é cadastrado sem descrição
-- **Resultado esperado:** Sistema deveria exigir descrição
-- **Severidade:** Alta
+Severidade: Alta
 
-### BUG-009: Sistema permite cadastrar sem instrutor
-- **Passos:** 1. Preencher todos os campos exceto "Instrutor" 2. Clicar em "CADASTRAR CURSO"
-- **Resultado atual:** Curso é cadastrado sem instrutor
-- **Resultado esperado:** Sistema deveria exigir instrutor
-- **Severidade:** Alta
+BUG-003: Sistema permite cadastrar sem preencher nome
+Passos: 1. Preencher todos os campos exceto "Nome do curso" 2. Clicar em "CADASTRAR CURSO"
 
-### BUG-010: Sistema permite cadastrar sem data de início
-- **Passos:** 1. Preencher todos os campos exceto "Data de início" 2. Clicar em "CADASTRAR CURSO"
-- **Resultado atual:** Curso é cadastrado sem data de início
-- **Resultado esperado:** Sistema deveria exigir data de início
-- **Severidade:** Alta
+Resultado atual: Curso é cadastrado sem nome
 
-### BUG-011: Sistema permite cadastrar sem data de fim
-- **Passos:** 1. Preencher todos os campos exceto "Data de fim" 2. Clicar em "CADASTRAR CURSO"
-- **Resultado atual:** Curso é cadastrado sem data de fim
-- **Resultado esperado:** Sistema deveria exigir data de fim
-- **Severidade:** Alta
+Resultado esperado: Sistema deveria exigir nome do curso
 
-### BUG-012: Sistema permite cadastrar sem número de vagas
-- **Passos:** 1. Preencher todos os campos exceto "Número de vagas" 2. Clicar em "CADASTRAR CURSO"
-- **Resultado atual:** Curso é cadastrado sem número de vagas
-- **Resultado esperado:** Sistema deveria exigir número de vagas
-- **Severidade:** Alta
+Severidade: Alta
 
-### BUG-013: Sistema aceita ano inválido (99999)
-- **Passos:** 1. Preencher "Data de início" com "99/99/99999" 2. Demais campos preenchidos 3. Clicar em "CADASTRAR CURSO"
-- **Resultado atual:** Sistema aceita ano com 5 dígitos
-- **Resultado esperado:** Sistema deveria validar formato dd/mm/aaaa
-- **Severidade:** Média
+BUG-004: Sistema permite cadastrar sem descrição
+Passos: 1. Preencher todos os campos exceto "Descrição" 2. Clicar em "CADASTRAR CURSO"
 
-### BUG-014: Sistema aceita URL inválida
-- **Passos:** 1. Preencher "Url da imagem" com "nao-e-uma-url" 2. Demais campos preenchidos 3. Clicar em "CADASTRAR CURSO"
-- **Resultado atual:** Sistema aceita texto qualquer no campo URL
-- **Resultado esperado:** Sistema deveria validar formato de URL
-- **Severidade:** Média
+Resultado atual: Curso é cadastrado sem descrição
 
-### BUG-015: Nome muito longo quebra layout da listagem
-- **Passos:** 1. Preencher "Nome do curso" com texto de 300 caracteres 2. Demais campos preenchidos 3. Clicar em "CADASTRAR CURSO" 4. Acessar listagem
-- **Resultado atual:** Layout da listagem fica quebrado
-- **Resultado esperado:** Sistema deveria truncar ou ajustar o texto
-- **Severidade:** Baixa
+Resultado esperado: Sistema deveria exigir descrição
+
+Severidade: Alta
+
+BUG-005: Sistema permite cadastrar sem instrutor
+Passos: 1. Preencher todos os campos exceto "Instrutor" 2. Clicar em "CADASTRAR CURSO"
+
+Resultado atual: Curso é cadastrado sem instrutor
+
+Resultado esperado: Sistema deveria exigir instrutor
+
+Severidade: Alta
+
+BUG-006: Sistema permite cadastrar sem data de início
+Passos: 1. Preencher todos os campos exceto "Data de início" 2. Clicar em "CADASTRAR CURSO"
+
+Resultado atual: Curso é cadastrado sem data de início
+
+Resultado esperado: Sistema deveria exigir data de início
+
+Severidade: Alta
+
+BUG-007: Sistema permite cadastrar sem data de fim
+Passos: 1. Preencher todos os campos exceto "Data de fim" 2. Clicar em "CADASTRAR CURSO"
+
+Resultado atual: Curso é cadastrado sem data de fim
+
+Resultado esperado: Sistema deveria exigir data de fim
+
+Severidade: Alta
+
+BUG-008: Sistema permite cadastrar sem número de vagas
+Passos: 1. Preencher todos os campos exceto "Número de vagas" 2. Clicar em "CADASTRAR CURSO"
+
+Resultado atual: Curso é cadastrado sem número de vagas
+
+Resultado esperado: Sistema deveria exigir número de vagas
+
+Severidade: Alta
+
+BUG-009: Campo "Tipo de curso" não é obrigatório
+Passos: 1. Preencher todos os campos 2. Não selecionar "Tipo de curso" 3. Clicar em "CADASTRAR CURSO"
+
+Resultado atual: Curso é cadastrado sem tipo definido
+
+Resultado esperado: Tipo de curso deveria ser obrigatório
+
+Severidade: Média
+
+BUG-010: Sistema aceita data fim anterior à data início
+Passos: 1. Preencher "Data início" com 30/06/2026 2. Preencher "Data fim" com 01/04/2026 3. Demais campos preenchidos 4. Clicar em "CADASTRAR CURSO"
+
+Resultado atual: Curso é cadastrado com datas inconsistentes
+
+Resultado esperado: Sistema deveria exibir mensagem "Data fim não pode ser anterior à data início"
+
+Severidade: Alta
+
+BUG-011: Sistema aceita número de vagas negativo
+Passos: 1. Preencher "Número de vagas" com -5 2. Demais campos preenchidos 3. Clicar em "CADASTRAR CURSO"
+
+Resultado atual: Curso é cadastrado com -5 vagas
+
+Resultado esperado: Sistema deveria aceitar apenas números positivos
+
+Severidade: Média
+
+BUG-012: Sistema aceita URL inválida
+Passos: 1. Preencher "Url da imagem" com "nao-e-uma-url" 2. Demais campos preenchidos 3. Clicar em "CADASTRAR CURSO"
+
+Resultado atual: Sistema aceita texto qualquer no campo URL
+
+Resultado esperado: Sistema deveria validar formato de URL
+
+Severidade: Média
+
+BUG-013: Nome muito longo quebra layout da listagem
+Passos: 1. Preencher "Nome do curso" com texto de 300 caracteres 2. Demais campos preenchidos 3. Clicar em "CADASTRAR CURSO" 4. Acessar listagem
+
+Resultado atual: Layout da listagem fica quebrado
+
+Resultado esperado: Sistema deveria truncar ou ajustar o texto
+
+Severidade: Baixa
+
+BUG-014: Exclusão de curso não remove da lista
+Passos: 1. Acessar "Listar cursos" 2. Clicar em "EXCLUIR CURSO" em qualquer curso 3. Aguardar mensagem verde
+
+Resultado atual: Mensagem "excluído com sucesso" aparece, mas curso continua na lista
+
+Resultado esperado: Curso deveria sumir da listagem imediatamente
+
+Severidade: Crítica
 
 ---
 
